@@ -94,6 +94,44 @@ export const PHASE_CONTENT = {
       cue: "“Turn and adjust.”",
     },
   },
+
+  load: {
+    left_arm: {
+      whatToDo: "Release the racquet with the left hand while keeping the left arm active and extended away from the body.",
+      lookFor: "The left hand is no longer holding the racquet. The left arm remains visible in front of or toward the side of the body rather than collapsing immediately against the torso.",
+      why: "The non-hitting arm helps organize spacing and balance as the preparation transitions into the forward swing.",
+      mistake: "Dropping the left arm immediately after releasing the racquet or pulling it tightly into the body too early.",
+      cue: "“Release — but keep the left arm active.”",
+    },
+    racquet_head_face: {
+      whatToDo: "Complete the preparation with the racquet positioned behind the hitting side and the racquet face oriented downward.",
+      lookFor: "The racquet is clearly behind the player rather than already moving toward the contact point. The strings / racquet face should show a downward orientation during this preparation stage.",
+      why: "This creates a clear transition between preparation and the forward acceleration that follows.",
+      mistake: "Opening the racquet face too early, or beginning the forward swing before the preparation has been completed.",
+      cue: "“Set the racquet — then go.”",
+    },
+    hips_torso: {
+      whatToDo: "Maintain the body turn created during the Unit Turn while preparing to transition into the forward swing.",
+      lookFor: "The torso remains turned rather than prematurely opening completely toward the net.",
+      why: "Holding the preparation briefly allows the body and racquet to transition together into the forward swing.",
+      mistake: "Opening the torso too early while the racquet is still completing its preparation.",
+      cue: "“Stay loaded.”",
+    },
+    outside_leg: {
+      whatToDo: "Establish a stable load through the outside leg while maintaining an athletic knee bend.",
+      lookFor: "The outside leg provides a stable base underneath the turned body rather than the player standing upright or falling away from the ball.",
+      why: "A stable base supports balance and prepares the body for the movement into the forward swing.",
+      mistake: "Remaining upright with little lower-body engagement or allowing the body to drift away from the hitting position.",
+      cue: "“Load and stay balanced.”",
+    },
+    spacing_feet: {
+      whatToDo: "Complete the foot adjustment so there is enough room between the body and the expected contact point.",
+      lookFor: "The player is positioned at a comfortable hitting distance rather than crowded by the incoming ball.",
+      why: "Good spacing gives the hitting arm and racquet room to accelerate through the next phase.",
+      mistake: "Moving too close to the ball and leaving insufficient room for the forward swing.",
+      cue: "“Create room to swing.”",
+    },
+  },
 };
 
 export function getCoaching(phaseLabel, partLabel, level) {
