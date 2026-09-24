@@ -5,17 +5,28 @@
 // Reference frame images live in ./phaseImages.js (one replaceable slot each).
 // Coaching copy lives in ./coachingContent.js (placeholders for now).
 
-// Body-part labels + tooltip subtitle. Positions are PER-PHASE (see PHASES.hotspots).
+// Coaching-specific hotspot labels. Hotspots are NOT a fixed anatomical list —
+// each phase declares its own relevant items (see PHASES.hotspots), with
+// per-phase coordinates because the body position changes between frames.
 export const HOTSPOT_META = {
   head: { label: "Head & Eyes" },
-  shoulder: { label: "Shoulder" },
-  elbow: { label: "Elbow" },
-  wrist: { label: "Wrist" },
-  hip: { label: "Hip" },
-  knee: { label: "Knee" },
-  feet: { label: "Feet" },
   racquet: { label: "Racquet" },
+  racquet_head: { label: "Racquet Head" },
+  racquet_face: { label: "Racquet Face" },
+  knees: { label: "Knees" },
+  feet: { label: "Feet" },
+  left_hand: { label: "Left Hand" },
+  left_arm: { label: "Left Arm" },
+  hitting_arm: { label: "Hitting Arm" },
+  shoulders: { label: "Shoulders" },
+  shoulder: { label: "Shoulder" },
+  hips: { label: "Hips" },
+  torso: { label: "Torso" },
+  wrist: { label: "Wrist" },
+  outside_leg: { label: "Outside Leg" },
   contact_point: { label: "Contact Point" },
+  weight_transfer: { label: "Weight Transfer" },
+  balance: { label: "Balance" },
 };
 
 export const LEVELS = [
@@ -25,7 +36,8 @@ export const LEVELS = [
 ];
 
 // The 7 consecutive frames of a single forehand stroke.
-// Each phase carries its OWN hotspot set with coordinates specific to that pose.
+// Each phase carries its OWN coaching-specific hotspot set with coordinates
+// specific to that pose.
 export const PHASES = [
   {
     id: "ready",
@@ -34,9 +46,8 @@ export const PHASES = [
     summary: "Balanced, alert and ready to move — the athletic base every stroke starts from.",
     hotspots: [
       { id: "head", pos: { top: "12%", left: "50%" } },
-      { id: "shoulder", pos: { top: "26%", left: "44%" } },
       { id: "racquet", pos: { top: "40%", left: "66%" } },
-      { id: "knee", pos: { top: "72%", left: "46%" } },
+      { id: "knees", pos: { top: "72%", left: "48%" } },
       { id: "feet", pos: { top: "92%", left: "50%" } },
     ],
   },
@@ -46,10 +57,12 @@ export const PHASES = [
     label: "Unit Turn",
     summary: "Shoulders and hips turn together as one unit the instant you recognise a forehand.",
     hotspots: [
-      { id: "head", pos: { top: "12%", left: "47%" } },
-      { id: "shoulder", pos: { top: "25%", left: "53%" } },
-      { id: "hip", pos: { top: "52%", left: "53%" } },
+      { id: "left_hand", pos: { top: "42%", left: "32%" } },
+      { id: "hitting_arm", pos: { top: "34%", left: "60%" } },
+      { id: "shoulders", pos: { top: "25%", left: "50%" } },
+      { id: "hips", pos: { top: "52%", left: "52%" } },
       { id: "racquet", pos: { top: "37%", left: "73%" } },
+      { id: "feet", pos: { top: "92%", left: "50%" } },
     ],
   },
   {
@@ -58,22 +71,25 @@ export const PHASES = [
     label: "Load / Preparation",
     summary: "Weight sinks into the back leg and the racquet drops below the ball — energy stored.",
     hotspots: [
-      { id: "hip", pos: { top: "53%", left: "55%" } },
-      { id: "wrist", pos: { top: "57%", left: "30%" } },
-      { id: "racquet", pos: { top: "66%", left: "26%" } },
-      { id: "knee", pos: { top: "74%", left: "53%" } },
+      { id: "left_arm", pos: { top: "40%", left: "34%" } },
+      { id: "racquet_head", pos: { top: "66%", left: "26%" } },
+      { id: "hips", pos: { top: "53%", left: "55%" } },
+      { id: "outside_leg", pos: { top: "74%", left: "58%" } },
+      { id: "feet", pos: { top: "92%", left: "52%" } },
     ],
   },
   {
     id: "forward_swing",
     num: 4,
     label: "Forward Swing",
-    summary: "Hips fire first, the elbow leads into the slot and the racquet accelerates up to the ball.",
+    summary: "Hips fire first, the arm follows the body and the racquet accelerates up to the ball.",
     hotspots: [
-      { id: "shoulder", pos: { top: "27%", left: "46%" } },
-      { id: "elbow", pos: { top: "44%", left: "40%" } },
-      { id: "wrist", pos: { top: "50%", left: "34%" } },
-      { id: "hip", pos: { top: "52%", left: "48%" } },
+      { id: "left_hand", pos: { top: "40%", left: "58%" } },
+      { id: "hips", pos: { top: "52%", left: "48%" } },
+      { id: "torso", pos: { top: "40%", left: "50%" } },
+      { id: "hitting_arm", pos: { top: "46%", left: "38%" } },
+      { id: "racquet_head", pos: { top: "56%", left: "30%" } },
+      { id: "outside_leg", pos: { top: "74%", left: "56%" } },
     ],
   },
   {
@@ -83,8 +99,10 @@ export const PHASES = [
     summary: "The most important frame — ball struck out in front with a firm, stable wrist.",
     hotspots: [
       { id: "head", pos: { top: "14%", left: "46%" } },
-      { id: "wrist", pos: { top: "46%", left: "64%" } },
-      { id: "racquet", pos: { top: "37%", left: "80%" } },
+      { id: "hitting_arm", pos: { top: "40%", left: "58%" } },
+      { id: "wrist", pos: { top: "46%", left: "66%" } },
+      { id: "racquet_face", pos: { top: "37%", left: "80%" } },
+      { id: "hips", pos: { top: "52%", left: "48%" } },
       { id: "contact_point", pos: { top: "41%", left: "74%" } },
     ],
   },
@@ -94,9 +112,12 @@ export const PHASES = [
     label: "Follow Through",
     summary: "The racquet finishes over the opposite shoulder as the torso rotates fully through.",
     hotspots: [
-      { id: "racquet", pos: { top: "20%", left: "40%" } },
+      { id: "left_hand", pos: { top: "40%", left: "40%" } },
+      { id: "hitting_arm", pos: { top: "30%", left: "58%" } },
       { id: "shoulder", pos: { top: "26%", left: "52%" } },
-      { id: "elbow", pos: { top: "31%", left: "60%" } },
+      { id: "torso", pos: { top: "45%", left: "50%" } },
+      { id: "racquet", pos: { top: "20%", left: "40%" } },
+      { id: "weight_transfer", pos: { top: "80%", left: "46%" } },
     ],
   },
   {
@@ -106,8 +127,9 @@ export const PHASES = [
     summary: "Push back toward the middle and reset into a balanced ready position for the next ball.",
     hotspots: [
       { id: "head", pos: { top: "12%", left: "50%" } },
-      { id: "knee", pos: { top: "72%", left: "48%" } },
+      { id: "hips", pos: { top: "52%", left: "50%" } },
       { id: "feet", pos: { top: "92%", left: "52%" } },
+      { id: "balance", pos: { top: "40%", left: "50%" } },
     ],
   },
 ];
