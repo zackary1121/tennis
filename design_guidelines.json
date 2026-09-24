@@ -1,0 +1,398 @@
+{
+  "project_name": "KineticCourt - Precision Tennis Biomechanics Lab",
+  "theme": "light",
+  "archetype": "Organic Precision meets Swiss Performance Athletics (Archetype 2: Tactical Sports Performance paired with Architectural Biomechanics)",
+  "design_vision": "A luxury, minimalist tennis laboratory aesthetic. Inspired by Swiss editorial design, Swiss Timing precision, and professional kinetic capture labs. Stark clean porcelain white backgrounds with surgical tennis court green (#15803D / #166534 / #22C55E) accents, precise 1px architectural hairline borders, technical monospace data points, and deep charcoal slate text. No cluttered gradients or neon gimmicks; raw photographic presence where the athlete dominates the viewport with interactive biometric overlay telemetry.",
+  
+  "typography": {
+    "google_fonts_import": "@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Cabinet+Grotesk:wght@700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap');",
+    "font_families": {
+      "display": "'Cabinet Grotesk', -apple-system, sans-serif",
+      "heading": "'Plus Jakarta Sans', sans-serif",
+      "body": "'Plus Jakarta Sans', sans-serif",
+      "mono": "'JetBrains Mono', monospace"
+    },
+    "hierarchy": {
+      "h1_hero": "font-extrabold tracking-tight text-4xl sm:text-5xl lg:text-6xl text-slate-900 leading-[1.08]",
+      "h2_section": "font-bold tracking-tight text-2xl sm:text-3xl lg:text-4xl text-slate-900 leading-tight",
+      "h3_card": "font-semibold tracking-tight text-xl sm:text-2xl text-slate-800",
+      "h4_widget": "font-semibold text-lg sm:text-xl text-slate-800 tracking-tight",
+      "body_base": "text-base text-slate-600 leading-relaxed font-normal",
+      "body_sm": "text-sm text-slate-500 leading-normal",
+      "mono_label": "font-mono text-xs uppercase tracking-[0.2em] font-semibold text-emerald-800"
+    },
+    "guidelines": "Never use Inter for headings. Keep subtitles substantial (at least text-lg to text-xl when paired with text-5xl/6xl headings). Emphasize biomechanical parameters with JetBrains Mono numbers and labels."
+  },
+
+  "color_palette": {
+    "background": {
+      "primary": "#FAFBF9",
+      "card_surface": "#FFFFFF",
+      "surface_elevated": "#F4F6F2",
+      "court_scrim": "#E9EFE6"
+    },
+    "brand_green_accents": {
+      "deep_wimbledon": "#0F3822",
+      "tennis_court_dark": "#166534",
+      "tennis_court_base": "#15803D",
+      "tennis_court_light": "#22C55E",
+      "optik_felt_glow": "#84CC16",
+      "green_tint_badge": "#ECFDF5",
+      "green_border_subtle": "#D1FAE5"
+    },
+    "neutrals": {
+      "slate_950": "#090D0A",
+      "slate_900": "#111814",
+      "slate_800": "#1E2922",
+      "slate_700": "#334139",
+      "slate_600": "#4B5563",
+      "slate_400": "#9CA3AF",
+      "slate_200": "#E5E7EB",
+      "slate_100": "#F3F4F6"
+    },
+    "semantic": {
+      "mistake_red": "#E11D48",
+      "mistake_badge_bg": "#FFF1F2",
+      "mistake_border": "#FFE4E6",
+      "warning_amber": "#D97706",
+      "drill_cyan": "#0284C7",
+      "drill_badge_bg": "#F0F9FF"
+    }
+  },
+
+  "surface_and_borders": {
+    "card_style": "bg-white border border-slate-200/80 rounded-2xl shadow-[0_2px_12px_rgba(0,0,0,0.03)] hover:border-emerald-600/40 hover:shadow-[0_8px_30px_rgba(21,128,61,0.08)] transition-all duration-300",
+    "hairline_grid": "border border-slate-200/70",
+    "subtle_tactile_press": "active:scale-[0.98] transition-transform duration-150",
+    "crystal_glass_nav": "bg-white/85 backdrop-blur-xl border-b border-slate-200/60 shadow-xs"
+  },
+
+  "image_urls": {
+    "hero_forehand_action": {
+      "url": "https://images.unsplash.com/photo-1714840961998-8d6c02ace00b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDN8MHwxfHNlYXJjaHw0fHx0ZW5uaXMlMjBwbGF5ZXIlMjBmb3JlaGFuZHxlbnwwfHx8fDE3OTAyMTkzMDJ8MA&ixlib=rb-4.1.0&q=85",
+      "category": "Hero & Technique Demonstration",
+      "description": "High dynamic tennis player hitting a forehand drive stroke on a court. Perfect for interactive biomechanics coordinate overlay.",
+      "usage": "Main image on the Forehand Technique Lab page and hero backdrop featured snippet"
+    },
+    "hero_court_aerial": {
+      "url": "https://images.unsplash.com/photo-1545151414-8a948e1ea54f?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDN8MHwxfHNlYXJjaHwyfHx0ZW5uaXMlMjBwbGF5ZXIlMjBmb3JlaGFuZHxlbnwwfHx8fDE3OTAyMTkzMDJ8MA&ixlib=rb-4.1.0&q=85",
+      "category": "Homepage Atmosphere & Precision Geometry",
+      "description": "Aerial court view of tennis stroke showing geometry, baseline discipline and lines.",
+      "usage": "Featured visual card on homepage and biomechanical geometry visualizer"
+    },
+    "player_serve_explosive": {
+      "url": "https://images.unsplash.com/photo-1554068865-24cecd4e34b8?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDN8MHwxfHNlYXJjaHwxfHx0ZW5uaXMlMjBwbGF5ZXIlMjBmb3JlaGFuZHxlbnwwfHx8fDE3OTAyMTkzMDJ8MA&ixlib=rb-4.1.0&q=85",
+      "category": "Technique Category Card - Serve",
+      "description": "Kinetic tennis player mid-air execution",
+      "usage": "Serve category card and athletic power module"
+    },
+    "teen_athletic_court": {
+      "url": "https://images.pexels.com/photos/18421042/pexels-photo-18421042.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "category": "Technique Category Card - Volley / Transition",
+      "description": "Youth developing player focused on court ready position",
+      "usage": "Volley category card & UTR Developing level highlight"
+    },
+    "player_hitting_urban": {
+      "url": "https://images.pexels.com/photos/22931874/pexels-photo-22931874.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "category": "Technique Category Card - Backhand Drive",
+      "description": "Focused player completing a two-handed contact zone stroke",
+      "usage": "Backhand technique card and drill comparison module"
+    }
+  },
+
+  "pages": {
+    "homepage": {
+      "route": "/",
+      "title": "Master Your Tennis Technique",
+      "subtitle": "Explore every movement. Understand every detail.",
+      "sections": [
+        {
+          "name": "Navigation Bar",
+          "test_id": "navbar",
+          "elements": [
+            "Brand Logo: KineticCourt (with glowing tennis optical green dot)",
+            "Links: Forehand (Active demo), Backhand, Serve, Volley, UTR Matrix",
+            "Level Quick Select badge",
+            "Primary CTA: 'Launch Technique Lab' button"
+          ]
+        },
+        {
+          "name": "Hero Section",
+          "test_id": "hero-section",
+          "structure": "Split high-impact asymmetric layout. Left: Crisp bold typography, subtle telemetry micro-stats (7 Movement Phases, 9 Biomechanical Hotspots, UTR 1-6 Progressive Pathways), Primary CTA 'Explore Techniques' linking to Forehand Lab, and secondary 'Interactive Preview'. Right: Interactive interactive mini-court visual preview with floating telemetry tags (Contact Point: 112 km/h, Unit Turn: 52°)."
+        },
+        {
+          "name": "Technique Categories Section",
+          "test_id": "technique-categories",
+          "heading": "Core Kinetic Disciplines",
+          "subheading": "Deconstruct modern tennis strokes into biomechanically verified motion sequences.",
+          "cards": [
+            {
+              "id": "forehand",
+              "title": "Modern Forehand",
+              "tag": "Primary Prototype Available",
+              "phases": "7 Kinetic Stages",
+              "hotspots": "9 Target Hotspots",
+              "action": "Opens /forehand",
+              "image_key": "hero_forehand_action"
+            },
+            {
+              "id": "backhand",
+              "title": "Two-Handed & One-Handed Backhand",
+              "tag": "Kinetic Coil",
+              "phases": "7 Kinetic Stages",
+              "hotspots": "8 Target Hotspots",
+              "action": "Opens preview modal or route",
+              "image_key": "player_hitting_urban"
+            },
+            {
+              "id": "serve",
+              "title": "The Kinetic Serve Engine",
+              "tag": "Leg Drive & Pronation",
+              "phases": "8 Kinetic Stages",
+              "hotspots": "10 Target Hotspots",
+              "action": "Opens preview modal",
+              "image_key": "player_serve_explosive"
+            },
+            {
+              "id": "volley",
+              "title": "Net Play & Punch Volley",
+              "tag": "Weight Transfer",
+              "phases": "5 Kinetic Stages",
+              "hotspots": "6 Target Hotspots",
+              "action": "Opens preview modal",
+              "image_key": "teen_athletic_court"
+            }
+          ]
+        },
+        {
+          "name": "Player Level Matrix (UTR 1 to 6)",
+          "test_id": "utr-level-section",
+          "heading": "Calibrated by Universal Tennis Rating (UTR)",
+          "subheading": "Targeted anatomical cues tuned precisely for where your kinetic chain currently stands.",
+          "tiers": [
+            {
+              "tier": "UTR 1 - 2",
+              "badge": "Foundational / Beginner",
+              "focus": "Swing Plane & Contact Consistency",
+              "description": "Fixing inconsistent contact points, eliminating excessive wrist flick, and establishing solid ready-position balance.",
+              "key_fix": "Contact out in front, stable wrist angle, basic split step"
+            },
+            {
+              "tier": "UTR 2 - 4",
+              "badge": "Developing / Intermediate",
+              "focus": "Kinetic Coil & Ground Reaction Force",
+              "description": "Transitioning from arm-powered swings to hip rotation, deep knee load, and fluid semi-western racket drops.",
+              "key_fix": "Unit turn engagement, lag and whip mechanics, open stance recovery"
+            },
+            {
+              "tier": "UTR 4 - 6",
+              "badge": "Competitive / Advanced Developing",
+              "focus": "Racket Head Velocity & Heavy Topspin",
+              "description": "Optimizing micro-timing: windshield wiper follow-through, aggressive shoulder-over-shoulder tilt, and effortless depth control.",
+              "key_fix": "Kinetic chain deceleration transfer, topspin rpm maximization, aggressive recovery push"
+            }
+          ]
+        },
+        {
+          "name": "Lab Preview Teaser & Direct CTA Banner",
+          "test_id": "cta-banner-section",
+          "headline": "Step Onto the Biomechanics Court",
+          "cta_button": "Enter Forehand Technique Lab"
+        }
+      ]
+    },
+
+    "technique_forehand_page": {
+      "route": "/forehand",
+      "title": "Forehand Biomechanical Studio",
+      "sub_headline": "Interactive Kinematic Analysis: Modern Semi-Western Drive",
+      "layout_architecture": {
+        "desktop": "2-Column Split Viewport: Left Column (60% width) = High-Definition Dominant Player Stage with Interactive Hotspot Coordinate System + Bottom Floating Kinetic Timeline; Right Column (40% width) = Sticky Surgical Telemetry Panel with Tabbed Biomechanics / Common Mistakes / Practice Drills.",
+        "mobile": "Single Column Flow: Level selector top -> Dominant Player with Hotspots -> Timeline Strip -> Active Body Part Detail Drawer/Card."
+      },
+      "interactive_components": {
+        "level_selector": {
+          "test_id": "utr-level-selector",
+          "options": ["UTR 1-2 (Foundation)", "UTR 2-4 (Developing)", "UTR 4-6 (Advanced Developing)"],
+          "behavior": "Switching levels instantly changes the depth of cue instructions, common mistakes, and recommended practice drills across all 9 hotspots."
+        },
+        "movement_timeline": {
+          "test_id": "movement-timeline",
+          "description": "Selectable 7-phase sequence spanning the full stroke cycle",
+          "phases": [
+            {
+              "id": "ready",
+              "label": "01. Ready Position",
+              "timing": "0.0s",
+              "cue": "Wide athletic base, racket head up, chest relaxed."
+            },
+            {
+              "id": "unit_turn",
+              "label": "02. Unit Turn",
+              "timing": "+0.24s",
+              "cue": "Shoulders rotate 90° as one unit; non-dominant hand tracks the ball."
+            },
+            {
+              "id": "load",
+              "label": "03. Kinetic Load",
+              "timing": "+0.45s",
+              "cue": "Back leg flexion, kinetic energy stored in hip coil, racket drops below ball line."
+            },
+            {
+              "id": "forward_swing",
+              "label": "04. Forward Swing",
+              "timing": "+0.60s",
+              "cue": "Hips fire first, elbow leads into slot, wrist lags naturally (racket drop)."
+            },
+            {
+              "id": "contact",
+              "label": "05. Contact Point",
+              "timing": "+0.72s",
+              "cue": "Ball struck comfortably out in front, stable wrist, eyes locked through point."
+            },
+            {
+              "id": "follow_through",
+              "label": "06. Follow Through",
+              "timing": "+0.88s",
+              "cue": "Windshield wiper motion over opposite shoulder, torso rotated open."
+            },
+            {
+              "id": "recovery",
+              "label": "07. Dynamic Recovery",
+              "timing": "+1.10s",
+              "cue": "Outside leg pushes back toward center hash, split step reset."
+            }
+          ]
+        },
+        "hotspot_markers": {
+          "test_id_pattern": "hotspot-marker-{id}",
+          "styling": {
+            "default": "relative flex items-center justify-center w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-white/95 text-slate-900 font-mono text-xs font-bold shadow-[0_4px_16px_rgba(0,0,0,0.18)] border-2 border-emerald-600 transition-all duration-200 hover:scale-125 cursor-pointer z-20 group",
+            "active": "relative flex items-center justify-center w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-emerald-600 text-white font-mono text-xs font-bold shadow-[0_0_0_6px_rgba(21,128,61,0.25)] border-2 border-white scale-110 z-30 transition-transform duration-200",
+            "pulse_ring": "absolute -inset-1 rounded-full bg-emerald-500/30 animate-ping pointer-events-none"
+          },
+          "hotspots_data": [
+            {
+              "id": "head",
+              "label": "Head & Eye Tracking",
+              "coordinates_percent": { "top": "22%", "left": "49%" },
+              "role": "Anchors balance. Head must remain completely still through the contact zone for 0.2s post-strike to prevent frame mishits.",
+              "mistake": "Looking up early toward the opponent court before the ball clears the strings, dropping the racket angle.",
+              "drill": "Keep gaze fixed on the empty impact airspace until follow-through touches opposite shoulder."
+            },
+            {
+              "id": "shoulder",
+              "label": "Shoulder Complex & Rotational Axis",
+              "coordinates_percent": { "top": "34%", "left": "54%" },
+              "role": "Creates angular momentum via rotational torque. Left shoulder pulls through while right shoulder drives upward.",
+              "mistake": "Passive torso rotation where the arm swings alone without kinetic shoulder involvement ('arming the ball').",
+              "drill": "Shadow swings focusing on pointing the chest at the fence post-finish."
+            },
+            {
+              "id": "elbow",
+              "label": "Elbow Slot & Extension",
+              "coordinates_percent": { "top": "43%", "left": "62%" },
+              "role": "Tucked comfortably 4-6 inches from rib cage in slot position, extending outward toward target line during acceleration.",
+              "mistake": "Elbow jammed tight against hip or hyper-straightened during backswing, killing topspin whip.",
+              "drill": "Towel under armpit drill: keep a microfiber towel pinched until initial forward racket acceleration."
+            },
+            {
+              "id": "wrist",
+              "label": "Wrist Lag & Radial Stability",
+              "coordinates_percent": { "top": "50%", "left": "68%" },
+              "role": "Lags behind handle naturally during forward drive, snaps into stable contact position without active 'flicking'.",
+              "mistake": "Active loose flicking trying to manually create topspin, leading to tendonitis and errant spray.",
+              "drill": "L-shape freeze drill: maintain firm 90-degree wrist extension at address."
+            },
+            {
+              "id": "hip",
+              "label": "Hip Coil & Core Uncoiling",
+              "coordinates_percent": { "top": "52%", "left": "47%" },
+              "role": "The primary engine of ground power. Right hip uncoils first, pulling torso, arm, and racket through the kinetic chain.",
+              "mistake": "Hips remaining static or square to net throughout the entire backswing.",
+              "drill": "Medicine ball rotational toss against wall to program hip-initiated power sequence."
+            },
+            {
+              "id": "knee",
+              "label": "Knee Bend & Vertical Drive",
+              "coordinates_percent": { "top": "68%", "left": "42%" },
+              "role": "Right knee flexes to approximately 110° to drop center of gravity and push explosively into the court.",
+              "mistake": "Standing upright with stiff knees, forcing the upper body to compensate for lack of lift.",
+              "drill": "Low-to-high cone touch: touch a low cone before initiating every shadow stroke."
+            },
+            {
+              "id": "feet",
+              "label": "Feet & Stance Anchor",
+              "coordinates_percent": { "top": "86%", "left": "46%" },
+              "role": "Semi-open stance anchoring back foot 45° to baseline for rapid recovery and torque distribution.",
+              "mistake": "Crossed-over closed stance on aggressive balls that locks the hips and forces arming.",
+              "drill": "Figure-8 footwork around two cones placed 4 feet apart on the baseline."
+            },
+            {
+              "id": "racquet",
+              "label": "Racquet Face Angle & Path",
+              "coordinates_percent": { "top": "42%", "left": "78%" },
+              "role": "Slightly closed face (8-12°) upon descent, brushing up 45° across the back-outside quadrant of the ball for heavy topspin.",
+              "mistake": "Open racquet face causing balls to launch deep beyond baseline or erratic high floaters.",
+              "drill": "Fence brush exercise: shadow swing along chain link fence keeping face parallel to fence."
+            },
+            {
+              "id": "contact_point",
+              "label": "Ball & Contact Point",
+              "coordinates_percent": { "top": "48%", "left": "74%" },
+              "role": "Struck 12-18 inches in front of front hip at waist-to-rib level with sweet-spot alignment.",
+              "mistake": "Letting ball get behind the body plane, losing all kinetic leverage and spray control.",
+              "drill": "Drop-feed hit from static hold: partner drops ball 1.5 ft in front; player freezes at contact."
+            }
+          ]
+        },
+        "info_panel_tabs": {
+          "test_id": "technique-tabs",
+          "tabs": [
+            {
+              "key": "technique",
+              "label": "Biomechanical Role",
+              "icon": "Activity"
+            },
+            {
+              "key": "mistakes",
+              "label": "Common Mistakes & Fix",
+              "icon": "AlertTriangle"
+            },
+            {
+              "key": "drills",
+              "label": "Targeted Practice Drill",
+              "icon": "Target"
+            }
+          ]
+        }
+      }
+    }
+  },
+
+  "micro_interactions": {
+    "hotspot_hover": "Scale 1.25 with subtle green bloom shadow (shadow-[0_0_20px_rgba(21,128,61,0.4)])",
+    "hotspot_click": "Instant focus highlight, active tab highlight, smooth telemetry card transition via Framer Motion AnimatePresence",
+    "phase_pill_transition": "Active phase gets solid emerald background with white mono step counter; inactive pills get subtle border with hover text darkening",
+    "level_pill_toggle": "Instant re-filtering of cue depth with green tick mark and subtle fade-in"
+  },
+
+  "accessibility_and_testing": {
+    "test_id_rules": "All interactive buttons, tabs, level pills, timeline steps, and hotspot markers MUST have explicit data-testid attributes",
+    "color_contrast": "All text satisfies WCAG AA (Minimum 4.5:1 ratio on light porcelain background). Muted slate text uses #4B5563 or #1E2922",
+    "keyboard_nav": "Hotspots can be cycled via Tab and activated with Enter/Space; Left/Right arrow keys navigate the 7-phase timeline"
+  },
+
+  "instructions_to_main_agent": [
+    "Build a complete, responsive React application with clean navigation between the Homepage ('/') and the Forehand Technique Lab ('/forehand').",
+    "Use pure Tailwind CSS utilities combined with custom typography classes. Avoid generic default templates.",
+    "Import Google Fonts 'Plus Jakarta Sans', 'Cabinet Grotesk', and 'JetBrains Mono' inside src/index.css before Tailwind imports.",
+    "On the Forehand page, render the athlete image inside a responsive relative container and place all 9 circular hotspot markers using precise absolute percentage coordinates so they align intuitively with anatomical areas (Head, Shoulder, Elbow, Wrist, Hip, Knee, Feet, Racquet, Contact Point).",
+    "Ensure each hotspot marker displays its index number or icon, pulses subtly, and updates the adjacent Biomechanics Telemetry Card with active role, common mistakes, and level-specific drills.",
+    "Implement the 7-phase kinetic timeline underneath the player image (Ready, Unit Turn, Load, Forward Swing, Contact, Follow Through, Recovery) allowing players to scrub or click through stroke phases.",
+    "Implement the UTR Level Selector (UTR 1-2, UTR 2-4, UTR 4-6) on both pages to customize the coaching advice from fundamental stability to high-rpm topspin mechanics.",
+    "Include high-polish micro-interactions: quick category filters, level switching, toast feedback for drill saving, and smooth tab transitions.",
+    "All interactive elements must carry unambiguous data-testid attributes."
+  ]
+}
