@@ -132,6 +132,51 @@ export const PHASE_CONTENT = {
       cue: "“Create room to swing.”",
     },
   },
+
+  forward_swing: {
+    left_hand: {
+      whatToDo: "Allow the left hand to move toward the left side of the body as the forward swing begins.",
+      lookFor: "The left hand is around the left side of the waist, with the palm generally facing upward. It is no longer extended across the front of the body.",
+      why: "The movement of the non-hitting arm accompanies the body’s transition from preparation into forward rotation.",
+      mistake: "Leaving the left arm extended across the body for too long or pulling it violently behind the torso.",
+      cue: "“Left hand comes home.”",
+    },
+    hips: {
+      whatToDo: "Begin releasing the hips from the loaded position as the racquet starts travelling forward.",
+      lookFor: "The hips are beginning to rotate toward the court rather than remaining completely locked in the loaded position.",
+      why: "This connects the lower-body preparation with the forward movement of the stroke.",
+      mistake: "Starting the forward swing using only the hitting arm while the hips remain passive.",
+      cue: "“Start the release.”",
+    },
+    torso: {
+      whatToDo: "Allow the torso to rotate forward with the swing while maintaining balance and control.",
+      lookFor: "The chest is beginning to rotate forward from the turned position, but has not yet reached the final follow-through position.",
+      why: "The torso helps connect the loaded body position to the forward movement of the hitting arm and racquet.",
+      mistake: "Swinging the arm independently while the torso remains frozen.",
+      cue: "“Body and arm move together.”",
+    },
+    hitting_arm: {
+      whatToDo: "Move the hitting arm forward toward the contact zone while maintaining enough space between the arm and the body.",
+      lookFor: "The hitting arm is travelling forward but has not yet reached the contact position.",
+      why: "Maintaining space allows the racquet to travel freely toward the ball.",
+      mistake: "Allowing the elbow and hitting arm to become crowded too close to the torso.",
+      cue: "“Keep your hitting space.”",
+    },
+    racquet_head: {
+      whatToDo: "Accelerate the racquet forward from the preparation position toward the incoming ball.",
+      lookFor: "The racquet has clearly moved forward from its Frame 3 position, but there is still visible space between the racquet and the ball/contact point.",
+      why: "This frame should show the transition from preparation into acceleration without confusing it with Contact.",
+      mistake: "Showing the racquet already at the ball, which would make this a Contact frame rather than a Forward Swing frame.",
+      cue: "“Forward to the ball.”",
+    },
+    outside_leg_balance: {
+      whatToDo: "Maintain a stable base as the body begins releasing from the loaded position.",
+      lookFor: "The player remains balanced while the lower body supports the forward rotation.",
+      why: "The forward swing should develop from a controlled base rather than from falling toward or away from the ball.",
+      mistake: "Losing balance as soon as the racquet begins moving forward.",
+      cue: "“Release from a stable base.”",
+    },
+  },
 };
 
 export function getCoaching(phaseLabel, partLabel, level) {
