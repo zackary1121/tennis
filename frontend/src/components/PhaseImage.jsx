@@ -1,16 +1,21 @@
 import { ImageIcon } from "lucide-react";
+import { PHASE_IMAGES } from "@/data/phaseImages";
 
 /**
- * Replaceable per-phase image asset.
- * Drop a real instructional image by setting `phase.image` in src/data/forehandData.js
- * (a URL or an imported asset). When null, a labelled placeholder renders instead.
- * Each phase renders its own instance, so images can be swapped individually.
+ * Replaceable per-phase reference image.
+ * The actual image asset comes from src/data/phaseImages.js (one slot per phase),
+ * so each frame can be swapped individually without editing this component.
+ * When a slot is null, a labelled placeholder renders instead.
+ *
+ * Images use object-contain so the full player body + racquet are never cropped.
  */
 export const PhaseImage = ({ phase, large = false }) => {
-  if (phase.image) {
+  const src = PHASE_IMAGES[phase.id];
+
+  if (src) {
     return (
       <img
-        src={phase.image}
+        src={src}
         alt={`Forehand — ${phase.label}`}
         className="absolute inset-0 h-full w-full object-contain select-none"
         draggable={false}
@@ -23,7 +28,6 @@ export const PhaseImage = ({ phase, large = false }) => {
       data-testid={`phase-placeholder-${phase.id}`}
       className="absolute inset-0 flex flex-col items-center justify-center court-grid bg-[#EAF1E7] text-center"
     >
-      {/* Simple biomechanical figure guide so hotspots have anatomical context */}
       {large && (
         <svg viewBox="0 0 100 160" className="absolute inset-0 h-full w-full opacity-[0.18]" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
           <g fill="none" stroke="#15803D" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
@@ -47,8 +51,8 @@ export const PhaseImage = ({ phase, large = false }) => {
         {large && (
           <>
             <ImageIcon className="mt-4 h-5 w-5 text-primary/60" />
-            <p className="mt-2 font-mono text-[11px] uppercase tracking-[0.2em] text-primary/80 font-semibold">Image Placeholder</p>
-            <p className="mt-1 text-xs text-muted-foreground max-w-[200px]">Replace with the “{phase.label}” frame</p>
+            <p className="mt-2 font-mono text-[11px] uppercase tracking-[0.2em] text-primary/80 font-semibold">Image Slot</p>
+            <p className="mt-1 text-xs text-muted-foreground max-w-[200px]">Add the “{phase.label}” frame in phaseImages.js</p>
           </>
         )}
       </div>
