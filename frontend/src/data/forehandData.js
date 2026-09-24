@@ -1,5 +1,23 @@
 // Content model for the Forehand Biomechanics Lab.
-// Each hotspot carries level-specific role / mistake / drill copy.
+// The stroke is taught as ONE continuous movement split into 7 consecutive frames.
+// Learning hierarchy: Stroke -> Movement Sequence -> Phase -> Body Part -> Technical Detail.
+//
+// Each phase owns its own replaceable image asset (`image`). Leave `image` as null to
+// render the labelled placeholder; drop in a URL/import later WITHOUT touching the page.
+
+// Shared metadata for every body part. `pos` = generic overlay coordinate (percent).
+// A phase may override a hotspot position via the hotspot's own `pos`.
+export const HOTSPOT_META = {
+  head: { num: 1, label: "Head & Eyes", subtitle: "Balance & Vision", pos: { top: "12%", left: "50%" } },
+  shoulder: { num: 2, label: "Shoulder", subtitle: "Rotational Axis", pos: { top: "26%", left: "44%" } },
+  elbow: { num: 3, label: "Elbow", subtitle: "Extension Lever", pos: { top: "40%", left: "37%" } },
+  wrist: { num: 4, label: "Wrist", subtitle: "Radial Stability", pos: { top: "52%", left: "31%" } },
+  hip: { num: 5, label: "Hip", subtitle: "Power Engine", pos: { top: "52%", left: "50%" } },
+  knee: { num: 6, label: "Knee", subtitle: "Vertical Drive", pos: { top: "72%", left: "46%" } },
+  feet: { num: 7, label: "Feet", subtitle: "Ground Anchor", pos: { top: "92%", left: "50%" } },
+  racquet: { num: 8, label: "Racquet", subtitle: "Face & Path", pos: { top: "40%", left: "68%" } },
+  contact_point: { num: 9, label: "Contact Point", subtitle: "Ball Strike", pos: { top: "42%", left: "72%" } },
+};
 
 export const LEVELS = [
   { key: "utr12", label: "UTR 1–2", sub: "Foundation" },
@@ -7,205 +25,139 @@ export const LEVELS = [
   { key: "utr46", label: "UTR 4–6", sub: "Advanced" },
 ];
 
+// The 7 consecutive frames of a single forehand stroke.
 export const PHASES = [
-  { id: "ready", label: "Ready", timing: "0.00s", cue: "Wide athletic base, racquet head up, weight forward on the balls of the feet.", focus: ["feet", "knee", "head"] },
-  { id: "unit_turn", label: "Unit Turn", timing: "+0.24s", cue: "Shoulders and hips rotate together as one unit; off-hand tracks the ball across the body.", focus: ["shoulder", "hip"] },
-  { id: "load", label: "Load", timing: "+0.45s", cue: "Back leg flexes and stores ground energy in the hip coil; racquet drops below the ball line.", focus: ["knee", "hip", "racquet"] },
-  { id: "forward_swing", label: "Forward Swing", timing: "+0.60s", cue: "Hips fire first, the elbow leads into the slot and the wrist lags naturally behind the handle.", focus: ["hip", "elbow", "wrist"] },
-  { id: "contact", label: "Contact", timing: "+0.72s", cue: "Ball struck comfortably out in front with a stable wrist; eyes locked on the impact zone.", focus: ["contact_point", "wrist", "head"] },
-  { id: "follow_through", label: "Follow Through", timing: "+0.88s", cue: "Windshield-wiper motion finishes over the opposite shoulder with the torso fully rotated.", focus: ["shoulder", "racquet"] },
-  { id: "recovery", label: "Recovery", timing: "+1.10s", cue: "Outside leg pushes back toward the centre mark and resets into a split step.", focus: ["feet", "knee"] },
-];
-
-export const HOTSPOTS = [
   {
-    id: "head", num: 1, label: "Head & Eye Tracking",
-    subtitle: "Balance & Vision", pos: { top: "21%", left: "42%" },
-    levels: {
-      utr12: {
-        role: "Your head is your balance anchor. Keep it still and your eyes on the ball — a quiet head keeps the whole swing steady.",
-        mistake: "Looking up to see where the ball is going before you've actually hit it.",
-        drill: "Say the ball's colour out loud at the moment you make contact to force your eyes down.",
-      },
-      utr24: {
-        role: "Keep the head still through the contact zone so the shoulders can rotate around a stable axis for cleaner ball striking.",
-        mistake: "Pulling the head off contact early, which opens the chest too soon and sprays the ball wide.",
-        drill: "Freeze your gaze on the empty impact airspace until the follow-through touches the opposite shoulder.",
-      },
-      utr46: {
-        role: "Head remains motionless for ~0.2s post-strike to prevent frame mishits at high racquet-head speed and preserve the rotational axis.",
-        mistake: "Micro head-lift under pressure that de-syncs eye tracking from the shoulder-over-shoulder tilt.",
-        drill: "Shadow at full speed keeping the chin pinned to the front shoulder until the wiper finish completes.",
-      },
+    id: "ready",
+    num: 1,
+    label: "Ready Position",
+    timing: "0.00s",
+    image: null,
+    summary: "Balanced, alert and ready to move — the athletic base every stroke starts from.",
+    levelFocus: {
+      utr12: "Just get balanced and hold the racquet up in front of you.",
+      utr24: "Add a small split step as your opponent strikes the ball.",
+      utr46: "Load the split step to explode in any direction on the bounce read.",
     },
+    hotspots: [
+      { id: "head", whatToDo: "Keep your eyes up and read the incoming ball early.", why: "Early reading buys time to set up the whole stroke.", mistake: "Watching your own feet instead of the ball and opponent.", cue: "\"Eyes on the strings across the net.\"" },
+      { id: "shoulder", whatToDo: "Relax the shoulders and hold the racquet with a light two-hand support at the throat.", why: "Loose shoulders react faster and rotate freely.", mistake: "Tense, hunched shoulders that delay the turn.", cue: "\"Soft hands, tall chest.\"" },
+      { id: "knee", whatToDo: "Soft knee bend, weight on the balls of your feet.", why: "A flexed base lets you push off instantly.", mistake: "Standing tall with locked, straight knees.", cue: "\"Sit into a light athletic squat.\"" },
+      { id: "feet", whatToDo: "Feet just wider than shoulders, ready to split step.", why: "A wide base gives balance and a fast first step.", mistake: "Feet together and flat-footed.", cue: "\"Bounce on your toes.\"" },
+      { id: "racquet", whatToDo: "Hold the racquet head up and out in front, centred.", why: "A neutral start makes either wing quick to prepare.", mistake: "Letting the racquet drop by your side.", cue: "\"Racquet up, pointing at the net.\"" },
+    ],
   },
   {
-    id: "shoulder", num: 2, label: "Shoulder & Rotation",
-    subtitle: "Rotational Axis", pos: { top: "30%", left: "48%" },
-    levels: {
-      utr12: {
-        role: "Turn your shoulders sideways so your body — not just your arm — helps swing the racquet.",
-        mistake: "Facing the net the whole time and swinging with the arm only.",
-        drill: "Point your off-hand at the side fence during the turn, then swing.",
-      },
-      utr24: {
-        role: "Shoulders coil during the unit turn and uncoil to deliver angular momentum; the front shoulder pulls through as the back shoulder drives up.",
-        mistake: "Passive torso rotation where the arm swings alone ('arming the ball').",
-        drill: "Shadow swings focused on finishing with your chest pointing at the target fence.",
-      },
-      utr46: {
-        role: "Shoulder-over-shoulder tilt converts stored coil into racquet-head velocity while sequencing after the hips in the kinetic chain.",
-        mistake: "Firing the shoulders simultaneously with the hips, collapsing the separation angle and losing whip.",
-        drill: "Resistance-band rotational pulls to train hip-lead, shoulder-follow separation timing.",
-      },
+    id: "unit_turn",
+    num: 2,
+    label: "Unit Turn",
+    timing: "+0.24s",
+    image: null,
+    summary: "Shoulders and hips turn together as one unit the instant you recognise a forehand.",
+    levelFocus: {
+      utr12: "Turn your shoulders sideways and take the racquet back with your body.",
+      utr24: "Track the ball with your non-dominant hand as you coil.",
+      utr46: "Create shoulder–hip separation to store elastic energy.",
     },
+    hotspots: [
+      { id: "shoulder", whatToDo: "Rotate both shoulders roughly 90° so your back faces the side fence.", why: "The turn is the first link in the power chain.", mistake: "Only taking the arm back while the chest stays facing forward.", cue: "\"Show your back to the opponent.\"" },
+      { id: "hip", whatToDo: "Let the hips coil with the shoulders as one piece.", why: "A unified turn loads the whole body, not just the arm.", mistake: "Hips staying square while the arm swings back.", cue: "\"Turn belt buckle to the fence.\"" },
+      { id: "head", whatToDo: "Keep the head level and eyes locked on the ball.", why: "A quiet head keeps the turn balanced.", mistake: "Head tilting or dropping during the coil.", cue: "\"Still head, turning body.\"" },
+      { id: "racquet", whatToDo: "Take the racquet back with the turn, non-hitting hand guiding it.", why: "Using the off-hand keeps the take-back compact and on plane.", mistake: "A long, loopy one-handed take-back.", cue: "\"Two hands start the turn.\"" },
+    ],
   },
   {
-    id: "elbow", num: 3, label: "Elbow Slot",
-    subtitle: "Extension Lever", pos: { top: "37%", left: "61%" },
-    levels: {
-      utr12: {
-        role: "Keep your elbow a little away from your body — not glued to your side — so the arm can swing freely.",
-        mistake: "Jamming the elbow into the ribs, which cramps the swing.",
-        drill: "Make slow shadow swings feeling a fist-sized gap between elbow and body.",
-      },
-      utr24: {
-        role: "The elbow sits in the 'slot' 4–6 inches off the rib cage and extends toward the target line during acceleration.",
-        mistake: "Elbow hyper-straightened during the backswing, killing the topspin whip.",
-        drill: "Towel-under-armpit drill: pinch a small towel until forward racquet acceleration begins.",
-      },
-      utr46: {
-        role: "The elbow leads the forearm into the slot, creating the lag that stores elastic energy before release into contact.",
-        mistake: "Leading with the hand instead of the elbow, removing lag and flattening the swing arc.",
-        drill: "Slow-motion 'elbow-first' pulls, then progressively add speed keeping the wrist passive.",
-      },
+    id: "load",
+    num: 3,
+    label: "Load / Racquet Preparation",
+    timing: "+0.45s",
+    image: null,
+    summary: "Weight sinks into the back leg and the racquet drops below the ball — energy stored.",
+    levelFocus: {
+      utr12: "Bend your back leg and get the racquet a little below the ball.",
+      utr24: "Feel weight load into the back hip before you swing forward.",
+      utr46: "Set a deep racquet drop with a relaxed wrist to maximise lag.",
     },
+    hotspots: [
+      { id: "knee", whatToDo: "Flex the back knee to lower your centre of gravity.", why: "The bend stores ground force you'll release upward.", mistake: "Staying upright with no leg load.", cue: "\"Sit into the back leg.\"" },
+      { id: "hip", whatToDo: "Load weight into the back hip and keep it coiled.", why: "The hip is the engine that fires the forward swing.", mistake: "Leaking the coil early by rotating too soon.", cue: "\"Coil and hold.\"" },
+      { id: "wrist", whatToDo: "Let the wrist lay back and stay relaxed.", why: "A relaxed wrist creates natural lag for racquet speed.", mistake: "Tensing the wrist and forcing the racquet down.", cue: "\"Loose wrist, heavy racquet.\"" },
+      { id: "racquet", whatToDo: "Drop the racquet head below the height of the oncoming ball.", why: "Starting low sets the low-to-high path for topspin.", mistake: "Keeping the racquet high, forcing a flat swing.", cue: "\"Racquet under the ball.\"" },
+    ],
   },
   {
-    id: "wrist", num: 4, label: "Wrist Lag",
-    subtitle: "Radial Stability", pos: { top: "40%", left: "72%" },
-    levels: {
-      utr12: {
-        role: "Keep your wrist firm and steady — don't flick it. A stable wrist means more control.",
-        mistake: "Flicking the wrist to try to add power, causing wild misses.",
-        drill: "Hold a firm 'L' shape at the wrist and hit slow, controlled balls.",
-      },
-      utr24: {
-        role: "The wrist lags behind the handle during the forward drive, then arrives at a stable, firm contact without active flicking.",
-        mistake: "Actively flicking to manufacture spin, leading to errant spray and strain.",
-        drill: "L-shape freeze drill: maintain a firm ~90° wrist extension at address and into contact.",
-      },
-      utr46: {
-        role: "Natural wrist lag stores and releases elastic energy; the radial-to-ulnar snap arrives passively for maximum racquet-head speed.",
-        mistake: "Timing the wrist snap manually, which de-synchronises the release and reduces spin consistency.",
-        drill: "Heavy-ball drops feeling the racquet 'fall then whip' with zero conscious wrist action.",
-      },
+    id: "forward_swing",
+    num: 4,
+    label: "Forward Swing",
+    timing: "+0.60s",
+    image: null,
+    summary: "Hips fire first, the elbow leads into the slot and the racquet accelerates up to the ball.",
+    levelFocus: {
+      utr12: "Swing low to high, brushing up the back of the ball.",
+      utr24: "Let the hips lead so the arm follows the body.",
+      utr46: "Sequence hips → torso → arm to whip the racquet head.",
     },
+    hotspots: [
+      { id: "hip", whatToDo: "Fire the back hip forward to start the swing.", why: "Hip-led swings are powerful and repeatable.", mistake: "Starting the swing with the arm, leaving the hips behind.", cue: "\"Hips go first.\"" },
+      { id: "elbow", whatToDo: "Lead with the elbow into the hitting slot near the ribs.", why: "The elbow slot keeps the racquet on an efficient path.", mistake: "Chicken-winging the elbow high and away.", cue: "\"Elbow leads into the slot.\"" },
+      { id: "wrist", whatToDo: "Let the wrist lag naturally behind the handle.", why: "Lag stores speed that releases into contact.", mistake: "Actively flicking to add spin too early.", cue: "\"Let the racquet trail.\"" },
+      { id: "shoulder", whatToDo: "Uncoil the shoulders after the hips.", why: "Correct sequencing transfers energy up the chain.", mistake: "Opening the shoulders at the same time as the hips.", cue: "\"Hips, then shoulders.\"" },
+    ],
   },
   {
-    id: "hip", num: 5, label: "Hip Coil",
-    subtitle: "Power Engine", pos: { top: "50%", left: "53%" },
-    levels: {
-      utr12: {
-        role: "Turn your hips sideways when you prepare, then turn them toward the net as you swing. This is where power starts.",
-        mistake: "Keeping the hips facing the net so all the effort comes from the arm.",
-        drill: "Turn your belt buckle to the side fence, then rotate it to face the net as you swing.",
-      },
-      utr24: {
-        role: "The hips are the primary engine of ground power — the back hip uncoils first, pulling the torso, arm and racquet through the chain.",
-        mistake: "Hips staying static and square to the net throughout the backswing.",
-        drill: "Medicine-ball rotational tosses against a wall to program hip-initiated power.",
-      },
-      utr46: {
-        role: "Hip drive initiates the kinetic sequence, converting ground-reaction force into rotational velocity before the shoulders release.",
-        mistake: "Over-rotating the hips past the shoulders, breaking separation and leaking power.",
-        drill: "Weighted rotational tosses timed so hips lead shoulders by a beat under fatigue.",
-      },
+    id: "contact",
+    num: 5,
+    label: "Contact",
+    timing: "+0.72s",
+    image: null,
+    summary: "The single most important frame — ball struck out in front with a firm, stable wrist.",
+    levelFocus: {
+      utr12: "Meet the ball out in front around waist height.",
+      utr24: "Keep a firm wrist and stable racquet face at impact.",
+      utr46: "Brush up the outer-back of the ball for heavy, controlled spin.",
     },
+    hotspots: [
+      { id: "contact_point", whatToDo: "Strike the ball 12–18 inches in front of your front hip.", why: "Contact out front gives leverage, power and control.", mistake: "Letting the ball drift level with or behind the body.", cue: "\"Catch it out in front.\"" },
+      { id: "wrist", whatToDo: "Firm the wrist into a stable position at impact.", why: "A stable wrist means a predictable racquet face.", mistake: "A loose, flicking wrist that sprays the ball.", cue: "\"Firm at the strike.\"" },
+      { id: "head", whatToDo: "Keep the head still and eyes on the contact point.", why: "A still head stops mishits and keeps balance.", mistake: "Pulling the head up to look where the ball is going.", cue: "\"Watch the ball hit the strings.\"" },
+      { id: "racquet", whatToDo: "Present a slightly closed face brushing low to high.", why: "The face angle and path create topspin and depth.", mistake: "An open face that floats the ball long.", cue: "\"Brush up the back.\"" },
+    ],
   },
   {
-    id: "knee", num: 6, label: "Knee Bend",
-    subtitle: "Vertical Drive", pos: { top: "63%", left: "41%" },
-    levels: {
-      utr12: {
-        role: "Bend your knees to get low and balanced. Then push up gently through the shot.",
-        mistake: "Standing up tall with straight, stiff legs.",
-        drill: "Touch a low cone before each shadow swing to groove the knee bend.",
-      },
-      utr24: {
-        role: "The back knee flexes to lower the centre of gravity, then extends to push explosively up into the shot for lift and depth.",
-        mistake: "Straight, stiff legs that force the upper body to compensate for the lack of lift.",
-        drill: "Low-to-high cone touch before every stroke to link knee load with the low-to-high swing path.",
-      },
-      utr46: {
-        role: "Knee flexion (~110°) stores ground-reaction force; timed leg drive adds vertical component for heavy topspin and effortless depth.",
-        mistake: "Extending the legs too early, dumping the drive before the kinetic chain releases.",
-        drill: "Depth-jump into shadow strokes to sync explosive leg drive with racquet acceleration.",
-      },
+    id: "follow_through",
+    num: 6,
+    label: "Follow Through",
+    timing: "+0.88s",
+    image: null,
+    summary: "The racquet finishes over the opposite shoulder as the torso rotates fully through.",
+    levelFocus: {
+      utr12: "Finish with the racquet over your opposite shoulder.",
+      utr24: "Let the torso rotate fully so the chest faces the target.",
+      utr46: "Use a windshield-wiper finish to control heavy spin.",
     },
+    hotspots: [
+      { id: "shoulder", whatToDo: "Rotate the shoulders through until the chest faces the target.", why: "Full rotation means you used the whole body.", mistake: "Stopping the rotation and finishing with just the arm.", cue: "\"Turn the chest to the net.\"" },
+      { id: "elbow", whatToDo: "Let the elbow travel up and across the body.", why: "A free follow-through protects the arm and adds spin.", mistake: "Cutting the swing off abruptly at contact.", cue: "\"Swing all the way through.\"" },
+      { id: "racquet", whatToDo: "Finish the racquet over the opposite shoulder or wiping across.", why: "The finish shape confirms a correct swing path.", mistake: "A short poke with no follow-through.", cue: "\"Catch the racquet by your ear.\"" },
+    ],
   },
   {
-    id: "feet", num: 7, label: "Feet & Stance",
-    subtitle: "Ground Anchor", pos: { top: "90%", left: "45%" },
-    levels: {
-      utr12: {
-        role: "Set your feet before you swing. A stable, shoulder-width stance keeps you balanced.",
-        mistake: "Feet too close together or still moving at contact.",
-        drill: "Split-step, set both feet, then hit — pause to check your balance after each shot.",
-      },
-      utr24: {
-        role: "A semi-open stance anchors the back foot ~45° to the baseline for torque distribution and quick recovery.",
-        mistake: "Crossing into a fully closed stance on fast balls, locking the hips.",
-        drill: "Figure-8 footwork around two cones set 4 feet apart on the baseline.",
-      },
-      utr46: {
-        role: "Stance adapts on the fly — open for pace and recovery, semi-open for balance — while the outside foot loads for explosive push-off.",
-        mistake: "Defaulting to one stance regardless of ball speed, sacrificing court coverage.",
-        drill: "Live rallying while a coach calls stance types to build adaptive footwork under pressure.",
-      },
+    id: "recovery",
+    num: 7,
+    label: "Recovery",
+    timing: "+1.10s",
+    image: null,
+    summary: "Push back toward the middle and reset into a balanced ready position for the next ball.",
+    levelFocus: {
+      utr12: "Get back to the middle and get ready again.",
+      utr24: "Push off the outside leg to recover quickly.",
+      utr46: "Recover with an explosive first step and early split.",
     },
-  },
-  {
-    id: "racquet", num: 8, label: "Racquet Path",
-    subtitle: "Face & Arc", pos: { top: "42%", left: "87%" },
-    levels: {
-      utr12: {
-        role: "Start the racquet low and finish high. Low-to-high brushing is what lifts the ball over the net safely.",
-        mistake: "Swinging flat and level, sending balls into the net.",
-        drill: "Draw a 'smile' shape with the racquet: start by the pocket, brush up to the shoulder.",
-      },
-      utr24: {
-        role: "A slightly closed face brushes up the back-outside quadrant of the ball on a low-to-high path to generate topspin.",
-        mistake: "An open racquet face launching balls long or floating them short.",
-        drill: "Fence-brush exercise: shadow along a chain-link fence keeping the face parallel to it.",
-      },
-      utr46: {
-        role: "The racquet path steepens for heavy topspin — face closed 8–12° on descent, brushing up ~45° across the ball with high head speed.",
-        mistake: "Over-brushing with too little forward drive, producing spin without depth or penetration.",
-        drill: "Alternate 'drive' and 'spin' targets to dial the balance of forward vs upward racquet path.",
-      },
-    },
-  },
-  {
-    id: "contact_point", num: 9, label: "Contact Point",
-    subtitle: "Ball Strike", pos: { top: "41%", left: "79%" },
-    levels: {
-      utr12: {
-        role: "Hit the ball out in front of your body, around waist height. Meeting it in front gives you power and control.",
-        mistake: "Letting the ball get beside or behind you before you swing.",
-        drill: "Partner drop-feeds a ball 1.5 ft in front; you step and strike it out front every time.",
-      },
-      utr24: {
-        role: "Contact is made 12–18 inches in front of the front hip at waist-to-rib height with the ball on the sweet spot.",
-        mistake: "Letting the ball drift behind the body plane, losing leverage and control.",
-        drill: "Drop-feed and freeze: catch the ball on the strings out front and hold the contact shape.",
-      },
-      utr46: {
-        role: "Precise contact window forward of the hip lets the closed face and racquet speed impart heavy spin while directing pace on demand.",
-        mistake: "Taking the ball slightly late under pressure, shrinking the window and reducing spin quality.",
-        drill: "Deep-ball live drills taking every ball on the rise, forced contact out in front.",
-      },
-    },
+    hotspots: [
+      { id: "feet", whatToDo: "Push off the outside foot back toward the centre mark.", why: "Fast recovery keeps you in the point.", mistake: "Admiring the shot and staying planted.", cue: "\"Push back to the middle.\"" },
+      { id: "knee", whatToDo: "Re-bend the knees into an athletic base.", why: "A loaded base is ready to move for the next ball.", mistake: "Recovering upright and flat-footed.", cue: "\"Land soft and low.\"" },
+      { id: "head", whatToDo: "Bring the eyes back up to read the next ball.", why: "Early reading restarts the whole cycle.", mistake: "Losing focus after your shot.", cue: "\"Reset eyes, reset feet.\"" },
+    ],
   },
 ];
 
@@ -222,4 +174,5 @@ export const UTR_TIERS = [
   { tier: "UTR 4–6", badge: "Competitive", focus: "Racquet Head Velocity & Topspin", description: "Refine timing: windshield-wiper finish, shoulder tilt and effortless depth control." },
 ];
 
+// Used only on the Homepage hero preview (not the instructional lab).
 export const PLAYER_IMAGE = "https://static.prod-images.emergentagent.com/jobs/a0f2bd2a-abb8-4358-9243-dea017eb6307/images/ef100845e21ac0187d40289aa0e91cbed3f59839cfd412f4eec939fe2689ed16.jpeg";
