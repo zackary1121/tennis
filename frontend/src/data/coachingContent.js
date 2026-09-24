@@ -56,6 +56,44 @@ export const PHASE_CONTENT = {
       cue: "[Placeholder — FEEL / CUE for Feet & Balance]",
     },
   },
+
+  unit_turn: {
+    left_hand: {
+      whatToDo: "Keep the left hand on the racquet during the initial turn and use both arms to help organize the preparation.",
+      lookFor: "Both hands are still involved with the racquet rather than the left hand releasing too early.",
+      why: "Keeping the left hand involved helps the upper body turn as one coordinated unit instead of starting with an isolated hitting-arm movement.",
+      mistake: "Releasing the left hand immediately and pulling the racquet back using only the right arm.",
+      cue: "“Turn together.”",
+    },
+    shoulders: {
+      whatToDo: "Turn the shoulders to the right as you recognize the ball coming to the forehand side.",
+      lookFor: "The chest begins turning away from the net while the head remains oriented toward the incoming ball.",
+      why: "The shoulder turn creates the preparation for the forward swing without relying on the hitting arm alone.",
+      mistake: "Keeping the chest facing the net while moving only the racquet backward.",
+      cue: "“Turn the shoulders.”",
+    },
+    hips_torso: {
+      whatToDo: "Allow the torso and hips to begin turning with the shoulders as the body organizes for the forehand.",
+      lookFor: "The body is no longer completely square to the net and has begun turning toward the forehand side.",
+      why: "This turn prepares the body for the loading phase that follows.",
+      mistake: "Moving only the arms and racquet while the body remains facing forward.",
+      cue: "“Turn the body, not just the racquet.”",
+    },
+    racquet: {
+      whatToDo: "Let the racquet move with the body turn while both hands are still involved in the preparation.",
+      lookFor: "The racquet has moved away from the Ready Position but has not yet reached the final Load position.",
+      why: "Unit Turn is the beginning of preparation and should flow naturally into the Load phase.",
+      mistake: "Pulling the racquet too far behind the body immediately and skipping the gradual preparation sequence.",
+      cue: "“Turn first — load next.”",
+    },
+    feet: {
+      whatToDo: "Begin adjusting the feet as the body turns to establish appropriate spacing for the incoming ball.",
+      lookFor: "The feet respond to the incoming ball rather than remaining fixed in the original Ready Position.",
+      why: "The body turn needs to connect with movement so the player can establish appropriate spacing before the forward swing.",
+      mistake: "Turning the upper body while leaving the feet completely planted.",
+      cue: "“Turn and adjust.”",
+    },
+  },
 };
 
 export function getCoaching(phaseLabel, partLabel, level) {
