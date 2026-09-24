@@ -177,6 +177,51 @@ export const PHASE_CONTENT = {
       cue: "“Release from a stable base.”",
     },
   },
+
+  contact: {
+    contact_point: {
+      whatToDo: "Meet the ball in front of the body with enough space to swing freely through the contact zone.",
+      lookFor: "The ball is clearly in front of the hitting side rather than beside or behind the body.",
+      why: "Contact in front allows the racquet to meet the ball after the forward swing has developed naturally.",
+      mistake: "Letting the ball travel too close to the body or too far behind before making contact.",
+      cue: "“Meet it in front.”",
+    },
+    racquet_face: {
+      whatToDo: "Present the racquet face appropriately to the ball through the contact area.",
+      lookFor: "At contact, the racquet face is no longer in the clearly downward preparation orientation shown during Frame 3.",
+      why: "Racquet-face orientation strongly influences the direction and trajectory of the outgoing ball.",
+      mistake: "Opening the racquet face excessively through contact and unintentionally sending the ball too high or long.",
+      cue: "“Present the strings to the ball.”",
+    },
+    hitting_arm_spacing: {
+      whatToDo: "Maintain comfortable separation between the hitting arm and torso as the racquet reaches the ball.",
+      lookFor: "The arm has room to move through contact without becoming trapped against the body.",
+      why: "Good spacing allows the swing path to continue freely through the hitting zone.",
+      mistake: "Getting too close to the ball and creating a cramped contact position.",
+      cue: "“Give yourself room.”",
+    },
+    wrist: {
+      whatToDo: "Maintain a controlled wrist position through contact without deliberately forcing or snapping the wrist.",
+      lookFor: "The wrist supports the racquet through contact while remaining part of the overall arm-and-racquet movement.",
+      why: "Contact should come from the coordinated swing rather than an isolated last-second wrist action.",
+      mistake: "Deliberately flicking or snapping the wrist at the ball in an attempt to create extra power or topspin.",
+      cue: "“Swing through — don’t flick.”",
+    },
+    head: {
+      whatToDo: "Keep the head controlled and attention directed toward the contact area as the ball reaches the racquet.",
+      lookFor: "The head does not immediately turn away with the torso before contact is completed.",
+      why: "A controlled head position supports visual tracking and helps avoid unnecessary movement during the strike.",
+      mistake: "Looking toward the target too early and turning the head away before the ball reaches the strings.",
+      cue: "“Stay with contact.”",
+    },
+    hips_torso: {
+      whatToDo: "Allow the hips and torso to continue rotating through the strike while maintaining balance.",
+      lookFor: "The body has progressed forward from the loaded Frame 3 position and the early rotation of Frame 4.",
+      why: "Contact is part of one continuous movement from preparation through the forward swing — not an isolated arm action.",
+      mistake: "Stopping the body completely and trying to create the entire stroke with the hitting arm.",
+      cue: "“Rotate through.”",
+    },
+  },
 };
 
 export function getCoaching(phaseLabel, partLabel, level) {
