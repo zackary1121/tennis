@@ -11,6 +11,8 @@
 export const HOTSPOT_META = {
   head: { label: "Head & Eyes" },
   racquet: { label: "Racquet" },
+  racquet_hands: { label: "Racquet & Hands" },
+  feet_balance: { label: "Feet & Balance" },
   racquet_head: { label: "Racquet Head" },
   racquet_face: { label: "Racquet Face" },
   knees: { label: "Knees" },
@@ -46,9 +48,9 @@ export const PHASES = [
     summary: "Balanced, alert and ready to move — the athletic base every stroke starts from.",
     hotspots: [
       { id: "head", pos: { top: "12%", left: "50%" } },
-      { id: "racquet", pos: { top: "40%", left: "66%" } },
+      { id: "racquet_hands", pos: { top: "40%", left: "66%" } },
       { id: "knees", pos: { top: "72%", left: "48%" } },
-      { id: "feet", pos: { top: "92%", left: "50%" } },
+      { id: "feet_balance", pos: { top: "92%", left: "50%" } },
     ],
   },
   {

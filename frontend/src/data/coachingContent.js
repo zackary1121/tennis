@@ -1,19 +1,61 @@
 // ============================================================================
-// COACHING CONTENT (PLACEHOLDERS)
+// COACHING CONTENT
 // ----------------------------------------------------------------------------
-// Short placeholders for now. Final technical content will be provided later.
-// The UTR level controls the AMOUNT and COMPLEXITY of information shown — it
-// does NOT change the reference movement images.
+// Two content sources:
+//  1) PHASE_CONTENT  -> real, verbatim coaching per phase/hotspot with the full
+//                       5-field structure. Shown in full regardless of UTR level.
+//  2) getCoaching()  -> placeholder text for phases that don't have real content
+//                       yet, filtered by LEVEL_BLOCKS (amount varies by level).
 //
-// To drop in final content later, replace getCoaching() with a lookup into a
-// map keyed by `${phaseId}:${hotspotId}:${level}`.
+// Full 5-field order for real content.
 // ============================================================================
 
-// Which detail blocks are shown at each level (amount of information).
+export const FIELD_ORDER = ["whatToDo", "lookFor", "why", "mistake", "cue"];
+
+// Which placeholder blocks show at each level (used only for phases without real content).
 export const LEVEL_BLOCKS = {
   utr12: ["whatToDo", "cue"],
   utr24: ["whatToDo", "mistake", "cue"],
   utr46: ["whatToDo", "why", "mistake", "cue"],
+};
+
+// -----------------------------------------------------------------------------
+// REAL CONTENT
+// Frame 1 — Ready Position. Replace the placeholder strings below with the
+// final verbatim copy for each of the 5 fields. Do NOT add numerical angles,
+// speeds or timing values.
+// -----------------------------------------------------------------------------
+export const PHASE_CONTENT = {
+  ready: {
+    head: {
+      whatToDo: "[Placeholder — WHAT TO DO for Head & Eyes]",
+      lookFor: "[Placeholder — LOOK FOR for Head & Eyes]",
+      why: "[Placeholder — WHY IT MATTERS for Head & Eyes]",
+      mistake: "[Placeholder — COMMON MISTAKE for Head & Eyes]",
+      cue: "[Placeholder — FEEL / CUE for Head & Eyes]",
+    },
+    racquet_hands: {
+      whatToDo: "[Placeholder — WHAT TO DO for Racquet & Hands]",
+      lookFor: "[Placeholder — LOOK FOR for Racquet & Hands]",
+      why: "[Placeholder — WHY IT MATTERS for Racquet & Hands]",
+      mistake: "[Placeholder — COMMON MISTAKE for Racquet & Hands]",
+      cue: "[Placeholder — FEEL / CUE for Racquet & Hands]",
+    },
+    knees: {
+      whatToDo: "[Placeholder — WHAT TO DO for Knees]",
+      lookFor: "[Placeholder — LOOK FOR for Knees]",
+      why: "[Placeholder — WHY IT MATTERS for Knees]",
+      mistake: "[Placeholder — COMMON MISTAKE for Knees]",
+      cue: "[Placeholder — FEEL / CUE for Knees]",
+    },
+    feet_balance: {
+      whatToDo: "[Placeholder — WHAT TO DO for Feet & Balance]",
+      lookFor: "[Placeholder — LOOK FOR for Feet & Balance]",
+      why: "[Placeholder — WHY IT MATTERS for Feet & Balance]",
+      mistake: "[Placeholder — COMMON MISTAKE for Feet & Balance]",
+      cue: "[Placeholder — FEEL / CUE for Feet & Balance]",
+    },
+  },
 };
 
 export function getCoaching(phaseLabel, partLabel, level) {

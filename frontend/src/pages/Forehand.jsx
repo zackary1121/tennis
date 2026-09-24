@@ -2,16 +2,17 @@ import { useState, useRef, useEffect, useCallback } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { toast } from "sonner";
-import { ArrowLeft, ChevronLeft, ChevronRight, Play, Pause, CheckCircle2, HelpCircle, AlertTriangle, Sparkles, BookmarkPlus } from "lucide-react";
+import { ArrowLeft, ChevronLeft, ChevronRight, Play, Pause, CheckCircle2, Eye, HelpCircle, AlertTriangle, Sparkles, BookmarkPlus } from "lucide-react";
 import { Navbar } from "@/components/Navbar";
 import { PhaseImage } from "@/components/PhaseImage";
 import { LEVELS, PHASES, HOTSPOT_META } from "@/data/forehandData";
-import { getCoaching, LEVEL_BLOCKS } from "@/data/coachingContent";
+import { getCoaching, LEVEL_BLOCKS, PHASE_CONTENT, FIELD_ORDER } from "@/data/coachingContent";
 
 const SPEEDS = { slow: 2400, normal: 1200 };
 
 const BLOCK_META = {
   whatToDo: { label: "What to do", icon: CheckCircle2, tone: "text-primary", bg: "bg-accent/60 border-primary/20" },
+  lookFor: { label: "Look for", icon: Eye, tone: "text-slate-700", bg: "bg-[#F4F6F2] border-border" },
   why: { label: "Why it matters", icon: HelpCircle, tone: "text-slate-700", bg: "bg-secondary border-border" },
   mistake: { label: "Common mistake", icon: AlertTriangle, tone: "text-[#E11D48]", bg: "bg-[#FFF1F2] border-[#FFE4E6]" },
   cue: { label: "Feel / cue", icon: Sparkles, tone: "text-[#0284C7]", bg: "bg-[#F0F9FF] border-[#BAE6FD]" },
@@ -28,8 +29,9 @@ export default function Forehand() {
   const phase = PHASES[phaseIndex];
   const activeHotspot = phase.hotspots.find((h) => h.id === hotspotId) || phase.hotspots[0];
   const meta = HOTSPOT_META[activeHotspot.id];
-  const coaching = getCoaching(phase.label, meta.label, level);
-  const visibleBlocks = LEVEL_BLOCKS[level];
+  const realContent = PHASE_CONTENT[phase.id]?.[activeHotspot.id];
+  const coaching = realContent || getCoaching(phase.label, meta.label, level);
+  const visibleBlocks = realContent ? FIELD_ORDER : LEVEL_BLOCKS[level];
 
   const goToPhase = useCallback((i) => {
     const next = (i + PHASES.length) % PHASES.length;
