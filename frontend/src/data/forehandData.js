@@ -19,6 +19,7 @@ export const HOTSPOT_META = {
   racquet_face: { label: "Racquet Face" },
   knees: { label: "Knees" },
   feet: { label: "Feet" },
+  feet_repositioning: { label: "Feet / Repositioning" },
   left_hand: { label: "Left Hand" },
   left_arm: { label: "Left Arm" },
   non_hitting_arm: { label: "Non-Hitting Arm" },
@@ -135,10 +136,11 @@ export const PHASES = [
     label: "Recovery",
     summary: "Push back toward the middle and reset into a balanced ready position for the next ball.",
     hotspots: [
-      { id: "head", pos: { top: "12%", left: "50%" } },
-      { id: "hips", pos: { top: "52%", left: "50%" } },
-      { id: "feet", pos: { top: "92%", left: "52%" } },
-      { id: "balance", pos: { top: "40%", left: "50%" } },
+      { id: "head", pos: { top: "12%", left: "48%" } },
+      { id: "racquet", pos: { top: "40%", left: "60%" } },
+      { id: "hips_torso", pos: { top: "52%", left: "48%" } },
+      { id: "feet_repositioning", pos: { top: "92%", left: "46%" } },
+      { id: "balance", pos: { top: "66%", left: "50%" } },
     ],
   },
 ];

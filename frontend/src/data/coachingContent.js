@@ -267,6 +267,44 @@ export const PHASE_CONTENT = {
       cue: "“Finish balanced.”",
     },
   },
+
+  recovery: {
+    head: {
+      whatToDo: "Redirect your visual attention toward the opponent and prepare to read the next ball.",
+      lookFor: "The player is no longer visually fixed on the previous contact point and is beginning to re-engage with what is happening across the court.",
+      why: "Recovery is not complete if the body resets but the player is late reading the next shot.",
+      mistake: "Watching the previous shot for too long instead of preparing to read the opponent’s response.",
+      cue: "“Find the next ball.”",
+    },
+    racquet: {
+      whatToDo: "Allow the racquet to return from the completed follow through toward a neutral ready position.",
+      lookFor: "The racquet is no longer continuing farther into the follow through and has begun reorganizing toward the front of the body.",
+      why: "Returning the racquet toward neutral reduces unnecessary movement when preparing for the next forehand or backhand.",
+      mistake: "Leaving the racquet in the finished position while waiting to see where the next ball goes.",
+      cue: "“Bring the racquet back.”",
+    },
+    hips_torso: {
+      whatToDo: "Reorganize the hips and torso from the completed rotation toward a balanced, neutral position.",
+      lookFor: "The body is beginning to unwind from the finished forehand position rather than remaining fully rotated.",
+      why: "A neutral body position makes it easier to respond in either direction to the next shot.",
+      mistake: "Remaining turned after the stroke and reacting late when the opponent changes direction.",
+      cue: "“Reset the body.”",
+    },
+    feet_repositioning: {
+      whatToDo: "Begin moving immediately after the stroke to recover an appropriate court position.",
+      lookFor: "The feet are actively repositioning rather than remaining where the forehand was completed.",
+      why: "The end of one stroke is the beginning of preparation for the next.",
+      mistake: "Standing still after the forehand and waiting until the opponent hits before beginning recovery.",
+      cue: "“Hit — then move.”",
+    },
+    balance: {
+      whatToDo: "Regain a controlled athletic posture while transitioning out of the stroke.",
+      lookFor: "The player can move again immediately without needing an extra step simply to regain balance.",
+      why: "Good recovery allows the player to transition efficiently into the next movement sequence.",
+      mistake: "Over-rotating or allowing momentum from the forehand to carry the body too far out of position.",
+      cue: "“Finish ready to move.”",
+    },
+  },
 };
 
 export function getCoaching(phaseLabel, partLabel, level) {
