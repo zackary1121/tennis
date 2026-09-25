@@ -222,6 +222,51 @@ export const PHASE_CONTENT = {
       cue: "“Rotate through.”",
     },
   },
+
+  follow_through: {
+    hitting_arm: {
+      whatToDo: "Allow the hitting arm to continue naturally across and upward after contact.",
+      lookFor: "The arm continues its path rather than stopping immediately after the ball leaves the strings.",
+      why: "A complete follow through reflects a continuous swing through the contact zone rather than a stroke that decelerates abruptly at the ball.",
+      mistake: "Stopping the racquet and hitting arm immediately after contact.",
+      cue: "“Swing through the ball.”",
+    },
+    racquet: {
+      whatToDo: "Let the racquet continue its natural path forward, upward and across the body after contact.",
+      lookFor: "The racquet is clearly beyond the contact point and progressing toward the finishing side of the body.",
+      why: "The follow through is the continuation of the swing path created before and through contact.",
+      mistake: "Trying to place the racquet into a finishing position instead of allowing it to arrive there naturally.",
+      cue: "“Let it finish.”",
+    },
+    hitting_shoulder: {
+      whatToDo: "Allow the hitting-side shoulder to continue rotating through the stroke.",
+      lookFor: "The right shoulder has moved significantly forward compared with the preparation and contact phases.",
+      why: "Continued shoulder rotation shows that the stroke has travelled through the ball rather than being produced only by the arm.",
+      mistake: "Stopping the shoulders at contact while the arm continues by itself.",
+      cue: "“Shoulder comes through.”",
+    },
+    torso: {
+      whatToDo: "Allow the torso to continue rotating as the racquet completes its follow-through path.",
+      lookFor: "The chest has rotated substantially farther forward than it was during Contact.",
+      why: "The follow through should remain connected to the body’s rotation rather than becoming an isolated arm movement.",
+      mistake: "Finishing with the arm while the torso remains behind.",
+      cue: "“Finish the rotation.”",
+    },
+    non_hitting_arm: {
+      whatToDo: "Keep the non-hitting arm relaxed and balanced as the body completes the stroke.",
+      lookFor: "The left arm remains naturally organized with the body rather than becoming rigid or swinging excessively behind the player.",
+      why: "The non-hitting arm contributes to overall balance while the torso and hitting side complete the movement.",
+      mistake: "Throwing the left arm excessively behind the body and disturbing balance.",
+      cue: "“Stay balanced.”",
+    },
+    weight_transfer_balance: {
+      whatToDo: "Allow the body’s momentum to continue through the stroke while maintaining a controlled, balanced finish.",
+      lookFor: "The player remains stable after the swing rather than falling dramatically backward, sideways or toward the ball.",
+      why: "A balanced finish makes it easier to transition immediately into recovery for the next shot.",
+      mistake: "Over-rotating or falling out of the shot after contact.",
+      cue: "“Finish balanced.”",
+    },
+  },
 };
 
 export function getCoaching(phaseLabel, partLabel, level) {
