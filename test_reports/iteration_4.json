@@ -1,0 +1,30 @@
+{
+  "summary": "Frontend-only i18n (EN/中文) feature tested end-to-end on Home (/) and Forehand (/forehand). 47/48 automated checks passed. The 1 failure was a false negative in the test script (CSS text-transform uppercase vs case-sensitive substring match); the ZH equivalent '本阶段重点' rendered correctly, confirming the label works in both languages. All required translations, state preservation, persistence and integrations behave as specified.",
+  "backend_issues": { "critical": [], "minor": [] },
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": []
+  },
+  "test_report_links": [],
+  "action_items": [],
+  "critical_code_review_comments": [
+    "UTR level buttons (data-testid=level-*) and filmstrip frame buttons (data-testid=frame-*) do NOT set aria-pressed. Selected state is only conveyed via CSS classes ('bg-primary'). For accessibility/testability parity with the language toggle, consider adding aria-pressed to these buttons. Language toggle already does this correctly."
+  ],
+  "updated_files": [],
+  "success_rate": { "backend": "N/A (skipped)", "frontend": "98% (47/48, 1 false negative)" },
+  "test_credentials": "None required",
+  "seed_data_creation": "None",
+  "retest_needed": false,
+  "main_agent_can_self_test": true,
+  "context_for_next_testing_agent": "i18n feature verified. Language toggle (data-testid=language-toggle, lang-en, lang-zh-CN) works on both pages. localStorage key 'kc_lang' persists across reload and cross-page navigation. State preservation across language switch verified for frame-contact + chip-wrist + level-utr24 (both EN->ZH and ZH->EN round trip). All UI strings, phase names, controls, focus-area chips, coaching block headings and category names translate correctly. No English leaks in ZH Contact chips. Save cue toast, filmstrip selection, hotspot<->chip pairing, and Play Sequence (Pause button label appears on click) all functional.",
+  "verified_behaviors": [
+    "Default language is EN on first visit (aria-pressed=true on lang-en).",
+    "Home ZH: subtitle '探索每一个动作，理解每一个细节。', '探索技术', 正手/反手/发球/截击, UTR section '按 UTR 分级校准', footer '互动式网球技术' all present.",
+    "Forehand ZH: all 7 phase names, controls (上一步/播放动作序列/下一步/慢速/正常速度), coaching block headers (动作要领/观察重点/为什么重要/常见错误/动作感觉 / 提示), Focus header '本阶段重点', chip labels 拍面/击球点/持拍手臂与间距/手腕 present.",
+    "State preservation: after selecting Contact + Wrist + UTR 2-4, switching to ZH keeps '第 5 阶段 / 共 7', panel heading '手腕', UTR 2-4 button styled active. Round-trip back to EN preserves 'Frame 5 / 7', 'Wrist', UTR 2-4.",
+    "Persistence: reload after choosing ZH keeps lang-zh-CN aria-pressed=true and ZH UI. Navigating /forehand -> / -> /forehand keeps ZH.",
+    "Save-this-cue toast appears with translated text.",
+    "Play Sequence toggles to Pause on click."
+  ]
+}
