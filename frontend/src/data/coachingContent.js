@@ -10,6 +10,8 @@
 // Full 5-field order for real content.
 // ============================================================================
 
+import { PHASE_CONTENT_ZH } from "./coachingContentZh";
+
 export const FIELD_ORDER = ["whatToDo", "lookFor", "why", "mistake", "cue"];
 
 // Which placeholder blocks show at each level (used only for phases without real content).
@@ -306,6 +308,12 @@ export const PHASE_CONTENT = {
     },
   },
 };
+
+export function resolveContent(phaseId, hotspotId, lang) {
+  const zh = PHASE_CONTENT_ZH[phaseId]?.[hotspotId];
+  const en = PHASE_CONTENT[phaseId]?.[hotspotId];
+  return lang !== "en" && zh ? zh : en;
+}
 
 export function getCoaching(phaseLabel, partLabel, level) {
   const part = partLabel.toLowerCase();
