@@ -145,6 +145,49 @@ export const PHASES = [
   },
 ];
 
+// Simplified 5-phase model for UTR 1–2 beginners (distinct IDs from the
+// advanced 7-phase model so both coexist). One simple focus point per phase.
+export const PHASES_BEGINNER = [
+  {
+    id: "b_ready",
+    num: 1,
+    label: "Ready Position",
+    summary: "Balanced and relaxed, racquet comfortably in front — ready to move.",
+    hotspots: [{ id: "b_ready", pos: { top: "40%", left: "62%" } }],
+  },
+  {
+    id: "b_racquet_back",
+    num: 2,
+    label: "Racquet Back",
+    summary: "Racquet moves straight down to a low position beside your right side.",
+    hotspots: [{ id: "b_racquet_back", pos: { top: "58%", left: "74%" } }],
+  },
+  {
+    id: "b_forward_swing",
+    num: 3,
+    label: "Forward Swing",
+    summary: "Turn your body forward and swing the racquet up toward the ball.",
+    hotspots: [{ id: "b_forward_swing", pos: { top: "46%", left: "55%" } }],
+  },
+  {
+    id: "b_contact",
+    num: 4,
+    label: "Contact",
+    summary: "Meet the ball comfortably out in front of your body.",
+    hotspots: [{ id: "b_contact", pos: { top: "40%", left: "74%" } }],
+  },
+  {
+    id: "b_finish",
+    num: 5,
+    label: "Finish",
+    summary: "Swing through and finish high above your left shoulder.",
+    hotspots: [{ id: "b_finish", pos: { top: "20%", left: "36%" } }],
+  },
+];
+
+// UTR 1–2 uses the simplified model; UTR 2–4 and UTR 4–6 keep the advanced one.
+export const getPhases = (level) => (level === "utr12" ? PHASES_BEGINNER : PHASES);
+
 export const CATEGORIES = [
   { id: "forehand", title: "Forehand", tag: "Prototype Ready", phases: 7, hotspots: 9, available: true },
   { id: "backhand", title: "Backhand", tag: "Kinetic Coil", phases: 7, hotspots: 8, available: false },
